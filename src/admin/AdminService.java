@@ -1,4 +1,4 @@
-package miniProject;
+package admin;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
@@ -36,8 +36,19 @@ public class AdminService extends ActionEvent {
 		} else {
 			System.out.println("입력한 관리자 아이디 : " + textId);
 			System.out.println("입력한 비밀번호 : " + textPw);		
+			AdminDB db = new AdminDB();
+			db.checkId(textId);
 		}
 	}
+	
+	public void loginDBCheck(String admin, String pwd) {
+		if(textPw.equals(pwd)) {
+			alert("로그인 성공!");
+		}else {
+			alert("비밀번호가 틀립니다.");
+		}
+	}
+	
 	
 	public void keyboardId() {
 		System.out.println("스크린 아이디 터치 ");
